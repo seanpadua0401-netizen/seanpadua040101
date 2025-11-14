@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blue Card on Violet Background</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #8a2be2, #4b0082); /* Violet gradient */
+            color: white;
+            scroll-behavior: smooth;
+        }
+
+        nav {
+            width: 100%;
+            display: block;
+            position: sticky;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        nav:hover {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a.active {
+            background-color: transparent;
+            border-bottom: 2px solid #ffcc00;
+            color: #e7e5dd;
+        }
+
+        nav a:hover {
+            background-color: #ff4e50;
+            transform: scale(1.05);
+        }
+
+        .section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            padding: 60px 40px;
+            gap: 40px;
+        }
+
+        .card {
+            background-color: #140dd6; /* Blue */
+            border-radius: 12px;
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+            color: white;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card h2 {
+            font-size: 32px;
+            margin-bottom: 20px;
+            color: #ffffff;
+        }
+
+        .card p {
+            font-size: 20px; /* Updated font size */
+            font-weight: bold; /* Bold text */
+            margin-bottom: 24px;
+            color: #f0f8ff;
+        }
+
+        .card-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #ffffff;
+            color: #1e90ff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .card-button:hover {
+            background-color: #f0f8ff;
+        }
+     
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html" class="active">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section class="section">
+        <div class="card">
+            <p>This e-portfolio highlights my journey as a Computer Science student — a space where I share my projects, skills, and experiences as I continue learning and growing in the field. It reflects my dedication to building useful, creative, and student-driven solutions as I work toward becoming a future Web Developer.</p>
+        </div>
+    </section>
+
+   
+</body>
+
+</html>
