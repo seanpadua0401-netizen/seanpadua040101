@@ -1,243 +1,375 @@
-<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/topnavbar.css">
-  <title>GALLERY</title>
-  <style>
-    /* Background Video */
-    .videobg {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Navigation Example</title>
+    <style>
+     :root {
+            --nav-bg: rgba(0, 0, 0, 0.6);
+            --accent-left: #6a3ba0;
+            --accent-right: #181681;
+            --card-bg: #ffffff;
+            --card-radius: 12px;
+            --btn-bg: rgba(0, 0, 0, 0.5);
+            --btn-color: #fff;
+            --thumb-active: #ffd24a;
+        }
+        
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0
+        }
+        
+        html,
+        body {
+            height: 100%
+        }
+        
+        body {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #111;
+            background: linear-gradient(90deg, var(--accent-left), var(--accent-right));
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        /* Top navigation (sticky) */
+        /* Top navigation (sticky) */
+        
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: var(--nav-bg);
+            padding: 20px 0;
+            z-index: 1000;
+            backdrop-filter: blur(6px);
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 40px;
+        }
+        
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 16px;
+            padding: 6px 10px;
+            border-radius: 6px;
+            transition: transform 0.18s ease, background 0.18s ease;
+            position: relative;
+        }
+        
+        nav a:hover {
+            transform: scale(1.04);
+            background: rgb(17, 9, 9);
+        }
+        
+        nav a.active {
+            background-color: transparent;
+            border-bottom: 2px solid #ffcc00;
+            color: #e7e5dd;
+        }
+        
+        nav-underlay {
+            background-color: #f5f5f5;
+            padding: 40px 0;
+            text-align: center;
+            color: #333;
+            font-size: 20px;
+        }
+        /* Centered card */
+        
+        .card-wrapper {
+            width: 200%;
+            max-width: 980px;
+            padding: 100px 20px 40px;
+            /* top padding keeps card below nav */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+        }
+        
+        .card {
+            width: 700px;
+            max-width: 720px;
+            background: blue;
+            border-radius: var(--card-radius);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, 0.32);
+            overflow: hidden;
+        }
+        /* Viewer with overlay buttons */
+        
+        .viewer {
+            position: relative;
+            background: #111;
+            min-height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+        
+        .viewer img {
+            width: 200%;
+            height: 360px;
+            object-fit: cover;
+            display: block;
+            transition: opacity .28s ease;
+        }
+        
+        .btn-prev,
+        .btn-next {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--btn-bg);
+            color: var(--btn-color);
+            border: none;
+            width: 48px;
+            height: 48px;
+            border-radius: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            z-index: 10;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+        }
+        
+        .btn-prev {
+            left: 12px
+        }
+        
+        .btn-next {
+            right: 12px
+        }
+        
+        .btn-prev:active,
+        .btn-next:active {
+            transform: translateY(-49%) scale(.98)
+        }
+        
+        .card-body {
+            padding: 18px 18px
+        }
+        
+        .card-body h2 {
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 8px
+        }
+        
+        .card-body p {
+            color: #fdfdfd;
+            line-height: 1.45;
+            margin-bottom: 12px
+        }
+        /* Thumbnails */
+        
+        .thumbs {
+            display: flex;
+            gap: 8px;
+            padding: 12px 16px 20px;
+            overflow: auto;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.02));
+        }
+        
+        .thumb {
+            flex: 0 0 auto;
+            width: 86px;
+            height: 56px;
+            border: 2px solid transparent;
+            border-radius: 8px;
+            overflow: hidden;
+            padding: 0;
+            background: transparent;
+            cursor: pointer;
+        }
+        
+        .thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block
+        }
+        
+        .thumb.active {
+            border-color: var(--thumb-active);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25)
+        }
+        /* Responsive */
+        
+        @media (max-width:720px) {
+            .viewer img {
+                max-width: 100%;
+                max-height: 100%;
+                width: auto;
+                height: auto;
+                object-fit: contain;
+                display: block;
+                transition: opacity .28s ease;
+            }
+            .thumb {
+                width: 72px;
+                height: 48px
+            }
+            .btn-prev,
+            .btn-next {
+                width: 40px;
+                height: 40px;
+                font-size: 18px
+            }
+            .card-wrapper {
+                padding-top: 220px
+            }
+        }
+        
+        #card-video video {
+            height: 500;
+            width: 100%;
+            max-width: 500px;
+            /* Adjust this value as needed */
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            margin: 0 auto;
+            display: block;
+        }
     }
-
-    /* Main Gallery Section */
-    .image-slider {
-      margin-top: 80px;
-      text-align: center;
-      padding: 20px;
+    const cards=document.querySelectorAll('.gallery-card');
+    let currentIndex=0;
+    function showCard(index) {
+        cards.forEach((card, i)=> {
+            card.style.display=i===index ? 'block': 'none';
+        }
+        
+        );
     }
-
-    .slider-container {
-      position: relative;
-      width: 400px;
-      height: 400px;
-      margin: 40px auto;
-      border: 3px solid rgb(215, 191, 4);
-      border-radius: 15px;
-      overflow: hidden;
-      background-color: rgba(0, 0, 0, 0.3);
+    document.getElementById('nextBtn').addEventListener('click', ()=> {
+        currentIndex=(currentIndex + 1) % cards.length;
+        showCard(currentIndex);
     }
-
-    .slide {
-      display: none;
-      width: 100%;
-      height: 100%;
+    );
+    document.getElementById('prevBtn').addEventListener('click', ()=> {
+        currentIndex=(currentIndex - 1 + cards.length) % cards.length;
+        showCard(currentIndex);
     }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 15px;
-      box-sizing: border-box;
-    }
-
-    .active-slide {
-      display: block;
-    }
-
-    /* Prev/Next Buttons */
-    .button-prev,
-    .button-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.6);
-      border: none;
-      font-size: 24px;
-      padding: 8px 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .button-prev:hover,
-    .button-next:hover {
-      background-color: rgb(249, 0, 83);
-      color: white;
-    }
-
-    .button-prev {
-      left: 10px;
-    }
-
-    .button-next {
-      right: 10px;
-    }
-
-  </style>
+    );
+    showCard(currentIndex);
+    </style>
 </head>
 
 <body>
-  <video autoplay muted loop class="videobg">
-    <source src="vids/payr.mp4" type="video/mp4">
-  </video>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="gallery.html" class="active">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+    <div class="card-wrapper">
+        <div class="card">
+            <div class="viewer" id="viewer">
+                <button class="btn-prev" id="prevBtn" aria-label="Previous">&lt;</button>
+                <!-- fixed img tag -->
+                <img id="mainImg" src="images/6.jpg" alt="Gallery image">
+                <button class="btn-next" id="nextBtn" aria-label="Next">&gt;</button>
+            </div>
 
-  <!-- Top Navigation -->
-  <div class="topnav">
-    <a href="index.html">Home</a>
-    <a href="Resume.html">Resume</a>
-    <a class="active" href="gallery.html">Gallery</a>
-    <a href="register.html">Register</a>
-  </div>
-
-  <!-- Gallery Section -->
-  <div class="image-slider">
-    <h2>GALLERY</h2>
-    <p>Lambo!</p>
-
-    <div class="slider-container">
-      <div class="slide active-slide"><img src="images/1.jfif" alt="Image 1"></div>
-      <div class="slide"><img src="images/2.jfif" alt="Image 2"></div>
-      <div class="slide"><img src="images/3.jfif" alt="Image 3"></div>
-      <div class="slide"><img src="images/4.jfif" alt="Image 4"></div>
-      <div class="slide"><img src="images/5.jfif" alt="Image 5"></div>
-
-      <button class="button-prev">&#10094;</button>
-      <button class="button-next">&#10095;</button>
+            <div class="card-body">
+                <h2>Gallery</h2>
+                <p>Browse the gallery images. Use Prev / Next or click thumbnails to view more.</p>
+            </div>
+            <div class="thumbs" id="thumbs">
+                <!-- thumbnails generated by JS -->
+            </div>
+        </div>
     </div>
-  </div>
-
-  <script src="JS/midterm.js"></script>
-</body>
-</html>
-=======
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="css/topnavbar.css">
-  <title>GALLERY</title>
-  <style>
-    /* Background Video */
-    .videobg {
-      position: fixed;
-      right: 0;
-      bottom: 0;
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      z-index: -2;
-    }
-
-    /* Main Gallery Section */
-    .image-slider {
-      margin-top: 80px;
-      text-align: center;
-      padding: 20px;
-    }
-
-    .slider-container {
-      position: relative;
-      width: 400px;
-      height: 400px;
-      margin: 40px auto;
-      border: 3px solid rgb(215, 191, 4);
-      border-radius: 15px;
-      overflow: hidden;
-      background-color: rgba(0, 0, 0, 0.3);
-    }
-
-    .slide {
-      display: none;
-      width: 100%;
-      height: 100%;
-    }
-
-    .slide img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 15px;
-      box-sizing: border-box;
-    }
-
-    .active-slide {
-      display: block;
-    }
-
-    /* Prev/Next Buttons */
-    .button-prev,
-    .button-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background-color: rgba(255, 255, 255, 0.6);
-      border: none;
-      font-size: 24px;
-      padding: 8px 12px;
-      border-radius: 50%;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    .button-prev:hover,
-    .button-next:hover {
-      background-color: rgb(249, 0, 83);
-      color: white;
-    }
-
-    .button-prev {
-      left: 10px;
-    }
-
-    .button-next {
-      right: 10px;
-    }
-
-  </style>
-</head>
-
-<body>
-  <video autoplay muted loop class="videobg">
-    <source src="vids/payr.mp4" type="video/mp4">
-  </video>
-
-  <!-- Top Navigation -->
-  <div class="topnav">
-    <a href="index.html">Home</a>
-    <a href="Resume.html">Resume</a>
-    <a class="active" href="gallery.html">Gallery</a>
-    <a href="register.html">Register</a>
-  </div>
-
-  <!-- Gallery Section -->
-  <div class="image-slider">
-    <h2>GALLERY</h2>
-    <p>Lambo!</p>
-
-    <div class="slider-container">
-      <div class="slide active-slide"><img src="images/1.jfif" alt="Image 1"></div>
-      <div class="slide"><img src="images/2.jfif" alt="Image 2"></div>
-      <div class="slide"><img src="images/3.jfif" alt="Image 3"></div>
-      <div class="slide"><img src="images/4.jfif" alt="Image 4"></div>
-      <div class="slide"><img src="images/5.jfif" alt="Image 5"></div>
-
-      <button class="button-prev">&#10094;</button>
-      <button class="button-next">&#10095;</button>
+    <div class="gallery-card" id="card-video">
+        <video autoplay muted controls width="960" height="540" poster="images/video-thumbnail.jpg">
+  <source src="vids/codeplay.mp4" type="video/mp4" />
+  Your browser does not support the video tag.
+</video>
+        <div class="caption">Music Video: Codeplay</div>
     </div>
-  </div>
 
-  <script src="JS/midterm.js"></script>
+    <script>
+        (function() {
+            const images = [
+                'images/6.jpg', 'images/7.jpg', 'images/8.jpg', 'images/9.jpg',
+                'images/12.jpg',
+            ];
+            const mainImg = document.getElementById('mainImg');
+            const prevBtn = document.getElementById('prevBtn');
+            const nextBtn = document.getElementById('nextBtn');
+            const thumbsContainer = document.getElementById('thumbs');
+            let index = 0;
+
+            // create thumbnails
+            images.forEach((src, i) => {
+                const btn = document.createElement('button');
+                btn.className = 'thumb';
+                btn.dataset.index = i;
+                btn.title = `Image ${i+1}`;
+                const img = document.createElement('img');
+                img.src = src;
+                img.alt = `Thumb ${i+1}`;
+                btn.appendChild(img);
+                btn.addEventListener('click', () => show(i));
+                thumbsContainer.appendChild(btn);
+            });
+
+            const thumbs = Array.from(document.querySelectorAll('.thumb'));
+
+            function updateActiveThumb() {
+                thumbs.forEach(t => t.classList.toggle('active', Number(t.dataset.index) === index));
+                const active = thumbs[index];
+                if (active) active.scrollIntoView({
+                    behavior: 'smooth',
+                    inline: 'center',
+                    block: 'nearest'
+                });
+            }
+
+            function show(i) {
+                index = (i + images.length) % images.length;
+                // fade transition
+                mainImg.style.opacity = 0;
+                setTimeout(() => {
+                    mainImg.src = images[index];
+                    mainImg.style.opacity = 1;
+                }, 160);
+                updateActiveThumb();
+            }
+
+            prevBtn.addEventListener('click', () => show(index - 1));
+            nextBtn.addEventListener('click', () => show(index + 1));
+
+            window.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') prevBtn.click();
+                if (e.key === 'ArrowRight') nextBtn.click();
+            });
+
+            // init
+            show(0);
+        })();
+    </script>
+
 </body>
+
 </html>
->>>>>>> 672dbf83506ea0d6f49dfc88f7b7b88186ae7bba

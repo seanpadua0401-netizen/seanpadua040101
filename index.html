@@ -1,25 +1,243 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/topnavbar.css">
-    <title>Home</title>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sean Padua | Home</title>
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+        
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(to bottom right, rgb(68, 4, 219), rgb(125, 6, 223), rgb(5, 80, 219));
+            color: white;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        nav {
+            width: 100%;
+            display: block;
+            position: sticky;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            z-index: 1000;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 36px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+        
+        nav:hover {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        
+        nav a.active {
+            background-color: transparent;
+            border-bottom: 2px solid #ffcc00;
+            color: #e7e5dd;
+        }
+        
+        nav a:hover {
+            background-color: #ff4e50;
+            transform: scale(1.05);
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 60px 20px;
+        }
+        
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: stretch;
+            gap: 40px;
+            flex-wrap: wrap;
+            max-width: 1200px;
+            width: 100%;
+        }
+        
+        .card {
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .left-card {
+            background-color: #3900d4;
+            text-align: center;
+            width: 600px;
+        }
+        
+        .left-card img {
+            border: 5px solid yellow;
+            border-radius: 8px;
+            width: 300px;
+            height: 300px;
+            margin-bottom: 30px;
+        }
+        
+        .left-card h2 {
+            margin: 0;
+            font-size: 2em;
+        }
+        
+        .left-card p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        
+        .right-card {
+            background-color: #115deb;
+            color: #222;
+            width: 420px;
+            border-radius: 12px;
+            padding: 30px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+            text-align: center;
+        }
+        
+        .right-card h2 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+        
+        .right-card p {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+        }
+        
+        .github-button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-weight: bold;
+            color: white;
+            background: linear-gradient(to right, #1baad1, #0d0ace, #ffe600);
+            border: none;
+            border-radius: 25px;
+            text-decoration: none;
+            transition: transform 0.3s ease;
+        }
+        
+        .github-button i {
+            margin-right: 8px;
+        }
+        
+        .github-button:hover {
+            transform: scale(1.05);
+        }
+        
+        footer {
+            background-color: #222;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+            font-size: 0.95em;
+        }
+        
+        footer .social {
+            margin-top: 10px;
+        }
+        
+        footer .social a {
+            color: white;
+            margin: 0 10px;
+            font-size: 1.5em;
+            transition: transform 0.3s ease;
+        }
+        
+        footer .social a:hover {
+            transform: scale(1.2);
+        }
+        
+        @media (max-width: 900px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+            }
+            .left-card,
+            .right-card {
+                width: 120%;
+            }
+        }
+    </style>
 </head>
+
 <body>
-  <div class="topnav">
-    <a class="active" href="index.html"><i class="fa fa-fw fa-home"></i>Home</a>
-    <a href="Resume.html">Resume</a>
-    <a href="gallery.html">gallery</a>
-     <a href="register.html">register</a>
 
+    <!-- NAVIGATION -->
+    <nav>
+        <ul>
+            <li><a href="index.html" class="active">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="portfolio.html">Portfolio</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
 
-  </div>
-    <div style="padding: 16ox;">
-        Eviona 
+    <!-- MAIN CARDS -->
+    <main>
+        <div class="container">
+            <div class="card left-card">
+                <img src="images/6.jpg" alt="Sean Padua in car" />
+                <h2>Welcome!</h2>
+                <p>Hi my name is Sean Padua!</p>
+            </div>
 
-    </div>
+            <div class="card right-card">
+                <h2>C# and Java Project</h2>
+                <p>Mini programs demonstrating algorithm logic and syntax mastery and beginner-friendly Java programs focused on logic, structure, and performance. .
+                </p>
+                <a href="https://github.com/yourusername/your-repo" target="_blank" class="github-button">
+                   View on GitHub
+                  </a>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-content">
+            <p>&copy; Sean Padua • seanpadua0401@gmail.com • "All rights reserved"</p>
+            <div class="social">
+                <a href="https://www.facebook.com/SiD.ObceMia.2004" target="_blank"><i class="fab fa-facebook"></i></a>
+                <a href="https://instagram.com" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://github.com/seanpadua0401-netizen" target="_blank"><i class="fab fa-github"></i></a>
+            </div>
+        </div>
+    </footer>
+
 </body>
+
 </html>
