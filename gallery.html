@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Navigation Example</title>
     <style>
-     :root {
+         :root {
             --nav-bg: rgba(0, 0, 0, 0.6);
             --accent-left: #6a3ba0;
             --accent-right: #181681;
@@ -248,27 +248,29 @@
             margin: 0 auto;
             display: block;
         }
-    }
-    const cards=document.querySelectorAll('.gallery-card');
-    let currentIndex=0;
-    function showCard(index) {
-        cards.forEach((card, i)=> {
-            card.style.display=i===index ? 'block': 'none';
+        
+        const cards=document.querySelectorAll('.gallery-card');
+        let currentIndex=0;
+        function showCard(index) {
+            cards.forEach((card, i)=> {
+                card.style.display=i===index ? 'block': 'none';
+            }
+            );
+        }
+        
+        document.getElementById('nextBtn').addEventListener('click', ()=> {
+            currentIndex=(currentIndex + 1) % cards.length;
+            showCard(currentIndex);
         }
         
         );
-    }
-    document.getElementById('nextBtn').addEventListener('click', ()=> {
-        currentIndex=(currentIndex + 1) % cards.length;
+        document.getElementById('prevBtn').addEventListener('click', ()=> {
+            currentIndex=(currentIndex - 1 + cards.length) % cards.length;
+            showCard(currentIndex);
+        }
+        
+        );
         showCard(currentIndex);
-    }
-    );
-    document.getElementById('prevBtn').addEventListener('click', ()=> {
-        currentIndex=(currentIndex - 1 + cards.length) % cards.length;
-        showCard(currentIndex);
-    }
-    );
-    showCard(currentIndex);
     </style>
 </head>
 
