@@ -29,7 +29,7 @@
             position: sticky;
             top: 0;
             background-color: rgba(0, 0, 0, 0.6);
-            padding: 20px 0;
+            padding: 12px 0;
             z-index: 1000;
         }
         
@@ -71,107 +71,68 @@
         main {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
-            align-items: flex-start;
-            padding: 60px 20px;
+            align-items: center;
+            padding: 20px;
         }
         
-        .container {
+        .about-with-photo {
             display: flex;
-            justify-content: center;
-            align-items: stretch;
-            gap: 40px;
+            align-items: flex-start;
+            gap: 32px;
             flex-wrap: wrap;
-            max-width: 1200px;
-            width: 100%;
         }
-        
-        .card {
-            padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .left-card {
-            background-color: #3900d4;
-            text-align: center;
-            width: 600px;
-        }
-        
-        .left-card img {
-            border: 5px solid yellow;
-            border-radius: 8px;
-            width: 300px;
-            height: 300px;
-            margin-bottom: 30px;
-        }
-        
-        .left-card h2 {
-            margin: 0;
-            font-size: 2em;
-        }
-        
-        .left-card p {
-            font-size: 1.2em;
-            margin-top: 10px;
-        }
-        
-        .right-card {
-            background-color: #115deb;
-            color: #222;
-            width: 420px;
-            border-radius: 12px;
-            padding: 30px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+
+        .about-photo {
+            flex: 0 0 220px;
             text-align: center;
         }
-        
-        .right-card h2 {
-            font-size: 1.8em;
-            margin-bottom: 10px;
+
+        .about-photo img {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border: 4px solid #ffcc00;
+            border-radius: 12px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.35);
         }
-        
-        .right-card p {
-            font-size: 1.5em;
-            margin-bottom: 20px;
+
+        .about-photo h2 {
+            margin: 12px 0 3px;
+            font-size: 1.3em;
         }
-        
-        .github-button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-weight: bold;
-            color: white;
-            background: linear-gradient(to right, #1baad1, #0d0ace, #ffe600);
-            border: none;
-            border-radius: 25px;
-            text-decoration: none;
-            transition: transform 0.3s ease;
+
+        .about-photo p {
+            font-size: 0.9em;
+            color: #e7e5dd;
         }
-        
-        .github-button i {
-            margin-right: 8px;
+
+        .about-details {
+            flex: 1;
+            min-width: 280px;
         }
-        
-        .github-button:hover {
-            transform: scale(1.05);
+
+        .about-with-photo .about-details h2 {
+            text-align: left;
         }
         
         footer {
             background-color: #222;
             color: white;
             text-align: center;
-            padding: 20px 10px;
-            font-size: 0.95em;
+            padding: 10px;
+            font-size: 0.85em;
         }
         
         footer .social {
-            margin-top: 10px;
+            margin-top: 6px;
         }
         
         footer .social a {
             color: white;
             margin: 0 10px;
-            font-size: 1.5em;
+            font-size: 1.2em;
             transition: transform 0.3s ease;
         }
         
@@ -179,14 +140,109 @@
             transform: scale(1.2);
         }
         
+        .about-section {
+            max-width: 1200px;
+            width: 100%;
+            margin-top: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .about-card {
+            background-color: #4f2e85;
+            border-radius: 18px;
+            padding: 28px 35px;
+            width: 100%;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.45);
+            color: white;
+        }
+
+        .about-card h2 {
+            text-align: center;
+            font-size: 1.6em;
+            margin-bottom: 12px;
+            color: #fff;
+        }
+
+        .section-title {
+            font-weight: bold;
+            margin-top: 14px;
+            font-size: 1.05em;
+            color: #fff;
+            border-bottom: 2px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 5px 24px;
+        }
+
+        .info {
+            margin: 5px 0;
+            font-size: 0.95em;
+            color: #fff;
+        }
+
+        .info span {
+            font-weight: bold;
+        }
+
+        .resume-buttons {
+            display: flex;
+            justify-content: flex-start;
+            margin-top: 0.8rem;
+        }
+
+        .styled-button {
+            padding: 8px 18px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            background-color: #0077cc;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            text-decoration: none;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .styled-button:hover {
+            background-color: #005fa3;
+            transform: translateY(-2px);
+        }
+
+        .styled-button:active {
+            transform: translateY(0);
+            background-color: #004f8a;
+        }
+
         @media (max-width: 900px) {
-            .container {
+            .about-with-photo {
                 flex-direction: column;
                 align-items: center;
+                gap: 20px;
             }
-            .left-card,
-            .right-card {
-                width: 120%;
+            .about-photo {
+                flex: 0 0 auto;
+            }
+            .about-details {
+                width: 100%;
+            }
+            .about-card {
+                padding: 24px;
+            }
+            .info {
+                font-size: 0.95em;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .info-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -198,31 +254,49 @@
     <nav>
         <ul>
             <li><a href="index.html" class="active">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html">Contact</a></li>
         </ul>
     </nav>
 
     <!-- MAIN CARDS -->
     <main>
-        <div class="container">
-            <div class="card left-card">
-                <img src="images/6.jpg" alt="Sean Padua in car" />
-                <h2>Welcome!</h2>
-                <p>Hi my name is Sean Padua!</p>
-            </div>
+        <section class="about-section">
+            <div class="about-card about-with-photo">
+                <div class="about-photo">
+                    <img src="images/profile.jpg" alt="Sean Padua portrait" />
+                    <h2>Sean Q. Padua</h2>
+                    <p>Future Software Engineer / Web Developer</p>
+                </div>
+                <div class="about-details">
+                    <h2>About Me</h2>
 
-            <div class="card right-card">
-                <h2>C# and Java Project</h2>
-                <p>Mini programs demonstrating algorithm logic and syntax mastery and beginner-friendly Java programs focused on logic, structure, and performance. .
-                </p>
-                <a href="https://github.com/seanpadua0401-netizen/seanpadua0401.git" target="_blank" class="github-button">
-                   View on GitHub
-                  </a>
+                    <div class="section-title">Personal Background</div>
+                    <div class="info-grid">
+                        <div class="info"><span>Full Name:</span> Sean Q. Padua</div>
+                        <div class="info"><span>Address:</span> Zone 1 INC Comp. Bangued, Abra</div>
+                        <div class="info"><span>Birth Date:</span> January 15, 2004</div>
+                        <div class="info"><span>Birth Place:</span> Castro Hospital, St. Rusita St, Baliwag Bulacan</div>
+                    </div>
+
+                    <div class="section-title">Education</div>
+                    <div class="info-grid">
+                        <div class="info"><span>Primary School:</span> Cabarroguis Central School</div>
+                        <div class="info"><span>Year Graduated:</span> March 2016</div>
+                        <div class="info"><span>Secondary School:</span> Quirino General Highschool</div>
+                        <div class="info"><span>Strand:</span> STEM</div>
+                        <div class="info"><span>Year Graduated:</span> July 2022</div>
+                        <div class="info"><span>Tertiary School:</span> Data Center College of the Philippines Bangued</div>
+                        <div class="info"><span>Course and Year:</span> BSCS-4</div>
+                    </div>
+
+                    <div class="resume-buttons">
+                        <a href="Resume/Sean%20O.pdf" target="_blank" class="styled-button">Download Resume (PDF)</a>
+                    </div>
+                </div>
             </div>
-        </div>
+        </section>
     </main>
 
     <!-- FOOTER -->
@@ -238,6 +312,7 @@
         </div>
     </footer>
 
+    <script src="JS/insect.js"></script>
 </body>
 
 </html>

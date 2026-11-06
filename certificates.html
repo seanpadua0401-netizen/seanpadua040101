@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sean Padua | Certificates</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(to right, #6a3ba0, #181681);
+            color: white;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://www.transparenttextures.com/patterns/stardust.png');
+            opacity: 0.08;
+            animation: drift 60s linear infinite;
+            z-index: -1;
+        }
+
+        @keyframes drift {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: 1000px 1000px;
+            }
+        }
+
+        nav {
+            width: 100%;
+            display: block;
+            position: sticky;
+            top: 0;
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px 0;
+            z-index: 1000;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 40px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+        }
+
+        nav:hover {
+            box-shadow: 0 0 40px rgba(255, 215, 0, 0.6);
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        nav a.active {
+            background-color: transparent;
+            border-bottom: 2px solid #ffcc00;
+            color: #e7e5dd;
+        }
+
+        nav a:hover {
+            background-color: #ff4e50;
+            transform: scale(1.05);
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 2rem 1rem;
+        }
+
+        header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header h1 span {
+            color: #ffcc00;
+        }
+
+        header p {
+            font-size: 1.1rem;
+            color: #eee;
+        }
+
+        main {
+            flex: 1;
+            max-width: 1100px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 2rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .certificate-card {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 16px 32px rgba(0, 0, 0, 0.35);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .certificate-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .certificate-card a {
+            display: block;
+            background: #fff;
+        }
+
+        .certificate-card img {
+            width: 100%;
+            height: 240px;
+            object-fit: cover;
+            display: block;
+            transition: opacity 0.3s ease;
+        }
+
+        .certificate-card a:hover img {
+            opacity: 0.85;
+        }
+
+        .certificate-info {
+            padding: 1.2rem;
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
+
+        .certificate-info h2 {
+            font-size: 1.15rem;
+            color: #ffcc00;
+            margin-bottom: 0.5rem;
+            line-height: 1.3;
+        }
+
+        .certificate-info .issuer {
+            font-size: 0.95rem;
+            font-weight: bold;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+
+        .certificate-info .date {
+            font-size: 0.85rem;
+            color: #c9c9ff;
+            margin-bottom: 0.75rem;
+        }
+
+        .certificate-info p {
+            font-size: 0.95rem;
+            line-height: 1.5;
+            color: #eee;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: #111;
+            color: #888;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+                gap: 14px;
+            }
+            header h1 {
+                font-size: 2rem;
+            }
+            header {
+                padding: 2rem 1rem 0.5rem;
+            }
+            main {
+                padding: 1.2rem;
+                grid-template-columns: 1fr;
+            }
+            .certificate-card img {
+                height: 200px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="certificates.html" class="active">Certificates</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header>
+        <h1>My <span>Certificates</span></h1>
+        <p>Trainings, webinars, and programs I have participated in and completed.</p>
+    </header>
+
+    <main>
+        <article class="certificate-card">
+            <a href="images/certificates/dost-startup-cordillera.jpg" target="_blank" rel="noopener">
+                <img src="images/certificates/dost-startup-cordillera.jpg" alt="DOST Startup Now Cordillera Certificate of Participation" />
+            </a>
+            <div class="certificate-info">
+                <h2>Startup Now Cordillera: Exploring Programs, Funding, and Opportunities for Aspiring Startups</h2>
+                <div class="issuer">Department of Science and Technology (DOST) — Cordillera Administrative Region</div>
+                <div class="date">Certificate of Participation • September 2, 2026 • via Zoom</div>
+                <p>Awarded for actively participating in the DOST iHub Cordillera webinar on startup programs, funding, and opportunities for aspiring startups.</p>
+            </div>
+        </article>
+
+        <article class="certificate-card">
+            <a href="images/certificates/dict-startup-challenge-xi.jpg" target="_blank" rel="noopener">
+                <img src="images/certificates/dict-startup-challenge-xi.jpg" alt="DICT Philippine Startup Challenge XI Certificate of Participation" />
+            </a>
+            <div class="certificate-info">
+                <h2>Understanding Startups &amp; Getting Your Idea Ready for the Philippine Startup Challenge XI</h2>
+                <div class="issuer">Department of Information and Communications Technology (DICT)</div>
+                <div class="date">Certificate of Participation • September 7, 2026 • via Zoom</div>
+                <p>Participated in the webinar series on understanding startups, developing ideas, and preparing concepts for the Philippine Startup Challenge XI.</p>
+            </div>
+        </article>
+
+        <article class="certificate-card">
+            <a href="images/certificates/sdlc-cybersecurity-ai.jpg" target="_blank" rel="noopener">
+                <img src="images/certificates/sdlc-cybersecurity-ai.jpg" alt="Software Development Life Cycle and Cybersecurity in AI Certificate of Participation" />
+            </a>
+            <div class="certificate-info">
+                <h2>Software Development Life Cycle and Cybersecurity in Artificial Intelligence and Software Careers</h2>
+                <div class="issuer">Ethel Programming Computer Programming Services</div>
+                <div class="date">Certificate of Participation • November 2, 2026 • 2-hour webinar via Google Meet</div>
+                <p>Completed a 2-hour online webinar covering the software development life cycle, cybersecurity, and careers in artificial intelligence and software development.</p>
+            </div>
+        </article>
+
+        <article class="certificate-card">
+            <a href="images/certificates/international-winter-convergence.jpg" target="_blank" rel="noopener">
+                <img src="images/certificates/international-winter-convergence.jpg" alt="2023 International Winter Convergence Certificate of Completion" />
+            </a>
+            <div class="certificate-info">
+                <h2>2023 International Winter Convergence on Software Development and Cybercrime and Security using Python</h2>
+                <div class="issuer">Quirino State University, Philippines (with Adamas University &amp; Bulacan Agricultural State College)</div>
+                <div class="date">Certificate of Completion • March 8–10, 2023 • via Zoom</div>
+                <p>Completed the international winter convergence program on software development, cybercrime, and cybersecurity using the Python programming language.</p>
+            </div>
+        </article>
+    </main>
+
+    <footer>
+        <p>&copy; Sean Padua • seanpadua0401@gmail.com • "All rights reserved"</p>
+    </footer>
+
+    <script src="JS/insect.js"></script>
+</body>
+
+</html>

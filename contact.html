@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
     <style>
         * {
             margin: 0;
@@ -172,6 +173,51 @@
         .contact-form button:hover {
             background-color: #333;
         }
+
+        .social-title {
+            text-align: center;
+            margin-top: 30px;
+            color: #fff;
+            font-size: 1.1rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 18px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+            font-size: 24px;
+            text-decoration: none;
+            transition: transform 0.3s ease, background 0.3s ease;
+        }
+
+        .social-links a:hover {
+            transform: translateY(-5px) scale(1.08);
+            color: #fff;
+        }
+
+        .social-links a.facebook:hover {
+            background: #1877f2;
+        }
+
+        .social-links a.instagram:hover {
+            background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+        }
+
+        .social-links a.github:hover {
+            background: #333;
+        }
     </style>
 </head>
 
@@ -179,9 +225,8 @@
     <nav>
         <ul>
             <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="portfolio.html">Portfolio</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="certificates.html">Certificates</a></li>
+            <li><a href="projects.html">Projects</a></li>
             <li><a href="contact.html" class="active">Contact</a></li>
         </ul>
     </nav>
@@ -198,7 +243,22 @@
 
             <button type="submit">Send Message</button>
         </form>
+
+        <h3 class="social-title">Connect with me</h3>
+        <div class="social-links">
+            <a href="https://www.facebook.com/SiD.ObceMia.2004" target="_blank" rel="noopener" class="facebook" aria-label="Facebook">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="https://instagram.com" target="_blank" rel="noopener" class="instagram" aria-label="Instagram">
+                <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://github.com/seanpadua0401-netizen" target="_blank" rel="noopener" class="github" aria-label="GitHub">
+                <i class="fab fa-github"></i>
+            </a>
+        </div>
     </div>
+
+    <script src="JS/insect.js"></script>
 </body>
 
 </html>
