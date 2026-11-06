@@ -190,6 +190,31 @@
             font-weight: bold;
         }
 
+        .edu-grid {
+            display: grid;
+            grid-template-columns: minmax(260px, 1.4fr) minmax(150px, 1fr) minmax(150px, 1fr);
+            gap: 5px 24px;
+            margin: 5px 0;
+            font-size: 0.95em;
+            color: #fff;
+        }
+
+        .edu-grid span {
+            font-weight: bold;
+        }
+
+        .edu-grid .edu-school {
+            grid-column: 1;
+        }
+
+        .edu-grid .edu-extra {
+            grid-column: 2;
+        }
+
+        .edu-grid .edu-year {
+            grid-column: 3;
+        }
+
         .resume-buttons {
             display: flex;
             justify-content: flex-start;
@@ -244,6 +269,14 @@
             .info-grid {
                 grid-template-columns: 1fr;
             }
+            .edu-grid {
+                grid-template-columns: 1fr;
+            }
+            .edu-grid .edu-school,
+            .edu-grid .edu-extra,
+            .edu-grid .edu-year {
+                grid-column: auto;
+            }
         }
     </style>
 </head>
@@ -281,14 +314,16 @@
                     </div>
 
                     <div class="section-title">Education</div>
-                    <div class="info-grid">
-                        <div class="info"><span>Primary School:</span> Cabarroguis Central School</div>
-                        <div class="info"><span>Year Graduated:</span> March 2016</div>
-                        <div class="info"><span>Secondary School:</span> Quirino General Highschool</div>
-                        <div class="info"><span>Strand:</span> STEM</div>
-                        <div class="info"><span>Year Graduated:</span> July 2022</div>
-                        <div class="info"><span>Tertiary School:</span> Data Center College of the Philippines Bangued</div>
-                        <div class="info"><span>Course and Year:</span> BSCS-4</div>
+                    <div class="edu-grid">
+                        <div class="edu-school"><span>Primary School:</span> Cabarroguis Central School</div>
+                        <div class="edu-year"><span>Year Graduated:</span> March 2016</div>
+
+                        <div class="edu-school"><span>Secondary School:</span> Quirino General Highschool</div>
+                        <div class="edu-extra"><span>Strand:</span> STEM</div>
+                        <div class="edu-year"><span>Year Graduated:</span> July 2022</div>
+
+                        <div class="edu-school"><span>Tertiary School:</span> Data Center College of the Philippines Bangued</div>
+                        <div class="edu-extra"><span>Course and Year:</span> BSCS-4</div>
                     </div>
 
                     <div class="resume-buttons">
